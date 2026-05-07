@@ -93,7 +93,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // ============================================================
-// Live Demo — ONNX Runtime Web inference
+// Live Demo - ONNX Runtime Web inference
 // ============================================================
 
 const ONNX_MODEL_URL = "densenet121_best.onnx";
@@ -115,7 +115,7 @@ async function ensureModel() {
   if (ortLoading) throw new Error("Model is already loading.");
   ortLoading = true;
 
-  setModelStatus("Loading DenseNet121 model (~30 MB) — please wait…", true);
+  setModelStatus("Loading DenseNet121 model (~30 MB) - please wait…", true);
   try {
     // Point ONNX Runtime WASM binaries to the same CDN version
     ort.env.wasm.wasmPaths =
@@ -199,7 +199,7 @@ function resetDemo() {
   setModelStatus(
     ortSession
       ? "Model loaded. Ready to analyze."
-      : "Model not yet loaded — will load automatically on first analysis.",
+      : "Model not yet loaded - will load automatically on first analysis.",
     false
   );
 }
@@ -250,3 +250,4 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+

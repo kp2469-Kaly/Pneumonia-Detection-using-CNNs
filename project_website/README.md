@@ -1,6 +1,6 @@
 # Project Website
 
-This folder contains the GitHub Pages website for the Pneumonia Detection project. It is a fully static multi-page site — no server or build step required.
+This folder contains the GitHub Pages website for the Pneumonia Detection project. It is a fully static multi-page site - no server or build step required.
 
 ## Files
 
@@ -14,12 +14,12 @@ This folder contains the GitHub Pages website for the Pneumonia Detection projec
 | `script.js` | Scroll animations, AUC bar chart, and ONNX inference logic |
 | `densenet121_best.onnx` | ONNX model for in-browser inference (generate with `export_to_onnx.py`) |
 | `densenet121_best.onnx.data` | External ONNX tensor data file used by the model |
-| `assets/normal.png` | Sample prediction — NORMAL class |
-| `assets/pneumonia_true.png` | Sample prediction — PNEUMONIA class |
+| `assets/normal.png` | Sample prediction - NORMAL class |
+| `assets/pneumonia_true.png` | Sample prediction - PNEUMONIA class |
 
 ## Live Demo Setup (required before deploying)
 
-The **"Try It Live"** section runs the real DenseNet121 model inside the visitor's browser using [ONNX Runtime Web](https://onnxruntime.ai/docs/tutorials/web/). The model file is not stored in git by default because it is ~30 MB — you need to generate it once and commit it.
+The **"Try It Live"** section runs the real DenseNet121 model inside the visitor's browser using [ONNX Runtime Web](https://onnxruntime.ai/docs/tutorials/web/). The model file is not stored in git by default because it is ~30 MB - you need to generate it once and commit it.
 
 From the project root, run:
 
@@ -50,10 +50,11 @@ const repoUrl = "https://github.com/<username>/<repository>";
 
 ## Local Testing
 
-Do **not** open `index.html` directly from the file system — browsers block loading `.onnx` files over the `file://` protocol. Use a local HTTP server instead:
+Do **not** open `index.html` directly from the file system - browsers block loading `.onnx` files over the `file://` protocol. Use a local HTTP server instead:
 
 ```bash
 cd project_website
 python -m http.server 8080
 # then open http://localhost:8080 in your browser
 ```
+

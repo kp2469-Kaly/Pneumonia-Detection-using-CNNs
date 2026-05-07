@@ -1,12 +1,12 @@
 # Pneumonia Detection from Chest X-rays
 
-A deep learning project for CS 499 — Computer Vision in Healthcare at Northern Arizona University. The goal is to classify pediatric chest X-rays as either **NORMAL** or **PNEUMONIA** using a progression of three model architectures, with a focus on practical clinical considerations like class imbalance, conservative augmentation, and explainability through Grad-CAM.
+A deep learning project for pneumonia detection in chest X-rays. The goal is to classify pediatric chest X-rays as either **NORMAL** or **PNEUMONIA** using a progression of three model architectures, with a focus on practical clinical considerations like class imbalance, conservative augmentation, and explainability through Grad-CAM.
 
 ---
 
 ## Results
 
-Three models were trained and evaluated on the same held-out test set (624 images). All numbers below are real — pulled directly from notebook cell outputs.
+Three models were trained and evaluated on the same held-out test set (624 images). All numbers below are real - pulled directly from notebook cell outputs.
 
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
 |---|---|---|---|---|---|
@@ -14,7 +14,7 @@ Three models were trained and evaluated on the same held-out test set (624 image
 | ResNet-18 | 0.8045 | 0.7627 | 0.9974 | 0.8644 | 0.9438 |
 | **DenseNet121** | **0.8526** | **0.8104** | **0.9974** | **0.8943** | **0.9557** |
 
-DenseNet121 was selected as the final model. The near-perfect recall (0.9974) is intentional — in a clinical screening context, missing a pneumonia case is far more costly than a false alarm.
+DenseNet121 was selected as the final model. The near-perfect recall (0.9974) is intentional - in a clinical screening context, missing a pneumonia case is far more costly than a false alarm.
 
 ---
 
@@ -45,8 +45,8 @@ project/
 ├── environment.yml                      # Conda environment (recommended)
 ├── model_artifacts/
 │   ├── densenet121_best.pth             # Saved best model checkpoint
-│   ├── normal.png                       # Sample prediction — NORMAL
-│   ├── pneumonia_true.png               # Sample prediction — PNEUMONIA
+│   ├── normal.png                       # Sample prediction - NORMAL
+│   ├── pneumonia_true.png               # Sample prediction - PNEUMONIA
 │   └── use_pneumonia_model.py           # CLI inference script
 └── project_website/
     ├── index.html                       # GitHub Pages website
@@ -71,14 +71,14 @@ cd <REPOSITORY_FOLDER>
 
 ### 2. Set up the environment
 
-**Option A — Conda (recommended, matches the training environment):**
+**Option A - Conda (recommended, matches the training environment):**
 
 ```bash
 conda env create -f environment.yml
 conda activate pneumonia-detection
 ```
 
-**Option B — pip:**
+**Option B - pip:**
 
 ```bash
 pip install -r requirements.txt
@@ -133,7 +133,7 @@ python model_artifacts/use_pneumonia_model.py path/to/xray.jpg --checkpoint mode
 
 ## Live Web Demo
 
-The project website includes a **"Try It Live"** section where anyone can upload a chest X-ray and get a prediction directly in the browser — no server involved. It uses [ONNX Runtime Web](https://onnxruntime.ai/docs/tutorials/web/) to run the DenseNet121 model via WebAssembly.
+The project website includes a **"Try It Live"** section where anyone can upload a chest X-ray and get a prediction directly in the browser - no server involved. It uses [ONNX Runtime Web](https://onnxruntime.ai/docs/tutorials/web/) to run the DenseNet121 model via WebAssembly.
 
 To enable it, first export the model to ONNX format:
 
@@ -174,7 +174,7 @@ All three models output a single sigmoid probability: P(PNEUMONIA). The decision
 
 ### Preprocessing & Augmentation
 
-Images are resized to 224×224 and converted from grayscale to 3 channels (to be compatible with ImageNet-pretrained weights). Augmentation is kept conservative to avoid introducing unrealistic distortions into medical images:
+Images are resized to 224�-224 and converted from grayscale to 3 channels (to be compatible with ImageNet-pretrained weights). Augmentation is kept conservative to avoid introducing unrealistic distortions into medical images:
 
 - Random horizontal flip (p=0.3)
 - Random rotation (±7°)
@@ -205,10 +205,4 @@ The notebook includes **Grad-CAM** visualizations for the DenseNet121 model. The
 
 This project is a research and academic exercise. The model is not validated for clinical use and should not be used to make or influence any medical decisions.
 
----
 
-## Course Information
-
-**Course**: CS 499 — Computer Vision in Healthcare  
-**Institution**: Northern Arizona University  
-**Semester**: Spring 2026
