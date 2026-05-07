@@ -40,7 +40,6 @@ The dataset contains anterior-posterior chest radiographs from pediatric patient
 ```
 project/
 ├── pneumonia_detection_notebook.ipynb   # Full end-to-end pipeline
-├── export_to_onnx.py                    # Exports checkpoint to ONNX for the web demo
 ├── requirements.txt                     # Python dependencies (pip)
 ├── environment.yml                      # Conda environment (recommended)
 ├── model_artifacts/
@@ -50,9 +49,10 @@ project/
 │   └── use_pneumonia_model.py           # CLI inference script
 └── project_website/
     ├── index.html                       # GitHub Pages website
+  ├── methodology.html
+  ├── results.html
     ├── style.css
-    ├── script.js                        # Includes ONNX Runtime Web inference
-    ├── densenet121_best.onnx            # ONNX model for in-browser inference (generate with export_to_onnx.py)
+  ├── script.js
     └── assets/
         ├── normal.png
         └── pneumonia_true.png
@@ -131,25 +131,6 @@ python model_artifacts/use_pneumonia_model.py path/to/xray.jpg --checkpoint mode
 
 ---
 
-## Live Web Demo
-
-The project website includes a **"Try It Live"** section where anyone can upload a chest X-ray and get a prediction directly in the browser - no server involved. It uses [ONNX Runtime Web](https://onnxruntime.ai/docs/tutorials/web/) to run the DenseNet121 model via WebAssembly.
-
-To enable it, first export the model to ONNX format:
-
-```bash
-py export_to_onnx.py
-```
-
-This creates two files used by ONNX Runtime Web:
-
-- `project_website/densenet121_best.onnx`
-- `project_website/densenet121_best.onnx.data`
-
-Commit both files so the browser demo can run correctly.
-
----
-
 ## Model Details
 
 ### Architecture
@@ -190,14 +171,11 @@ The notebook includes **Grad-CAM** visualizations for the DenseNet121 model. The
 
 ## Deploying the Website to GitHub Pages
 
-1. Run `py export_to_onnx.py` and commit both model files:
-  - `project_website/densenet121_best.onnx`
-  - `project_website/densenet121_best.onnx.data`
-2. Push the full repository to GitHub.
-3. For GitHub Pages, publish from `/docs` or repository root (`/`) on branch `main`.
-4. If using `/docs`, copy `project_website/*` into `docs/` before deployment.
-5. Open **Settings → Pages** and select the matching source/folder.
-6. Update `repoUrl` in `project_website/script.js` to the repository URL.
+1. Push the full repository to GitHub.
+2. For GitHub Pages, publish from `/docs` or repository root (`/`) on branch `main`.
+3. If using `/docs`, copy `project_website/*` into `docs/` before deployment.
+4. Open **Settings → Pages** and select the matching source/folder.
+5. Update `repoUrl` in `project_website/script.js` to the repository URL.
 
 ---
 

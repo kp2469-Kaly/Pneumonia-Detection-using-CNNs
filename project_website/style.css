@@ -244,26 +244,6 @@ h1, h2, h3, .brand-title { font-family: "Sora", sans-serif; }
   border: 1px solid rgba(242, 140, 40, 0.45);
 }
 
-.spinner-theme {
-  color: var(--orange-500) !important;
-}
-
-.icon-theme-orange {
-  color: var(--orange-500);
-}
-
-.icon-theme-blue {
-  color: var(--navy-700);
-}
-
-.bar-theme-orange {
-  background-color: var(--orange-500) !important;
-}
-
-.bar-theme-blue {
-  background-color: var(--navy-700) !important;
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -277,90 +257,4 @@ h1, h2, h3, .brand-title { font-family: "Sora", sans-serif; }
 @media (max-width: 767px) {
   .section-pad { padding: 3.2rem 0; }
   .bar-row { grid-template-columns: 90px 1fr 50px; }
-}
-
-/* ============================================================
-   Live Demo Section
-   ============================================================ */
-
-.nav-link-demo {
-  color: var(--orange-500) !important;
-  font-weight: 700 !important;
-}
-.nav-link-demo:hover { color: var(--navy-700) !important; }
-
-.demo-card {
-  background: var(--card);
-  border: 1.5px solid rgba(242, 140, 40, 0.35);
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--shadow);
-}
-
-.model-status-bar {
-  background: rgba(242, 140, 40, 0.08);
-  border-left: 3px solid var(--orange-500);
-  padding: 0.55rem 0.9rem;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  min-height: 2.2rem;
-}
-
-.upload-zone {
-  border: 2px dashed rgba(242, 140, 40, 0.5);
-  border-radius: 12px;
-  padding: 2.5rem 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
-}
-.upload-zone:hover,
-.upload-zone.drag-over {
-  background: rgba(242, 140, 40, 0.08);
-  border-color: var(--orange-500);
-}
-
-.demo-upload-icon {
-  font-size: 3rem;
-  color: var(--orange-500);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.demo-preview-img {
-  max-width: 100%;
-  max-height: 280px;
-  border-radius: 10px;
-  border: 2px solid rgba(242, 140, 40, 0.4);
-  object-fit: contain;
-  background: #000;
-}
-
-.demo-result {
-  background: rgba(244, 248, 251, 0.9);
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-}
-
-.result-badge {
-  display: inline-block;
-  font-family: "Sora", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  padding: 0.45rem 1.8rem;
-  border-radius: 50px;
-}
-.result-pneumonia {
-  background: rgba(242, 140, 40, 0.15);
-  color: #a85a08;
-  border: 2px solid rgba(242, 140, 40, 0.55);
-}
-.result-normal {
-  background: rgba(20, 52, 93, 0.12);
-  color: var(--navy-700);
-  border: 2px solid rgba(20, 52, 93, 0.5);
 }
