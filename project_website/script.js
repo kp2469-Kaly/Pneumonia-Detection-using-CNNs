@@ -1,4 +1,4 @@
-const repoUrl = "";
+const repoUrl = "https://github.com/kp2469-Kaly/Pneumonia-Detection-using-CNNs";
 
 const techStack = [
   "Python",
