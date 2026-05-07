@@ -1,0 +1,36 @@
+name: pneumonia-detection
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+
+  # PyTorch — CUDA 12.1 build. If you don't have a GPU, replace with:
+  #   - pytorch::pytorch
+  #   - pytorch::torchvision
+  # and remove the pytorch-cuda line.
+  - pytorch::pytorch>=2.2.0
+  - pytorch::torchvision>=0.17.0
+  - pytorch::pytorch-cuda=12.1
+
+  # Data & numerics
+  - numpy>=1.26.0
+  - pandas>=2.1.0
+
+  # Visualization
+  - matplotlib>=3.8.0
+
+  # ML utilities
+  - scikit-learn>=1.4.0
+
+  # Notebook
+  - jupyter>=1.0.0
+  - ipykernel>=6.29.0
+
+  # Packages not on conda-forge — installed via pip
+  - pip:
+    - kagglehub>=1.0.0
+    - onnx>=1.16.0

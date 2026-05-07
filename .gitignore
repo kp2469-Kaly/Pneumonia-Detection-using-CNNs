@@ -1,0 +1,58 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# === Virtual environments ===
+.venv/
+venv/
+env/
+.env
+
+# === Conda ===
+.conda/
+
+# === Jupyter ===
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# === Model weights ===
+# The .pth checkpoint is large (~100 MB). Use Git LFS or host it separately.
+# Uncomment the line below if you want to exclude it:
+# model_artifacts/*.pth
+
+# The ONNX file is ~30 MB and is needed for the live web demo.
+# If it's too large for your repo, uncomment the line below and host it via
+# Git LFS or a CDN, then update ONNX_MODEL_URL in project_website/script.js.
+# project_website/*.onnx
+
+# === Datasets ===
+# Kaggle data is downloaded at runtime via kagglehub.
+# If you ever store it locally, don't commit it — it's several GB.
+data/
+datasets/
+chest_xray/
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Editor / IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*.suo
+
+# === Logs & outputs ===
+*.log
+runs/
+logs/
+
+# === Misc ===
+*.egg-info/
+dist/
+build/
