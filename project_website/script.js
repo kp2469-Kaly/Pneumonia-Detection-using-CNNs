@@ -22,8 +22,8 @@ function setRepoLinks() {
   const footerGithubLink = document.getElementById("footerGithubLink");
 
   if (repoUrl && repoUrl !== "#") {
-    githubButton.href = repoUrl;
-    footerGithubLink.href = repoUrl;
+    if (githubButton) githubButton.href = repoUrl;
+    if (footerGithubLink) footerGithubLink.href = repoUrl;
   }
 }
 
@@ -120,7 +120,11 @@ async function ensureModel() {
     // Point ONNX Runtime WASM binaries to the same CDN version
     ort.env.wasm.wasmPaths =
       "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.18.0/dist/";
-    ortSession = await ort.InferenceSession.create(ONNX_MODEL_URL);
+    ortSession = await ort.InferenceSession.create(ONNX_MODEL_URL, {
+      externalData: [{
+        path: "densenet121_best.onnx.data"
+      }]
+    });
     setModelStatus("Model loaded. Ready to analyze.", false);
   } catch (e) {
     ortLoading = false;

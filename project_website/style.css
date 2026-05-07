@@ -28,6 +28,10 @@ h1, h2, h3, .brand-title { font-family: "Sora", sans-serif; }
 .navbar { backdrop-filter: blur(7px); }
 .nav-link { color: var(--navy-700); font-weight: 600; }
 .nav-link:hover { color: var(--orange-500); }
+.nav-link.active-page {
+  color: var(--orange-500);
+  font-weight: 800;
+}
 
 .hero-section {
   color: #fff;

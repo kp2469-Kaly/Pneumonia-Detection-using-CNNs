@@ -1,12 +1,15 @@
 # Project Website
 
-This folder contains the GitHub Pages website for the Pneumonia Detection project. It is a fully static site — no server or build step required.
+This folder contains the GitHub Pages website for the Pneumonia Detection project. It is a fully static multi-page site — no server or build step required.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `index.html` | Full project page with all sections |
+| `index.html` | Home page |
+| `methodology.html` | Dataset, preprocessing, architecture, and training pipeline |
+| `results.html` | Metrics tables/charts and visual prediction outputs |
+| `demo.html` | Live in-browser ONNX inference page |
 | `style.css` | Custom CSS (blue, orange, white theme) |
 | `script.js` | Scroll animations, AUC bar chart, and ONNX inference logic |
 | `densenet121_best.onnx` | ONNX model for in-browser inference (generate with `export_to_onnx.py`) |
