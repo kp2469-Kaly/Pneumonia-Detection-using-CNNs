@@ -52,6 +52,7 @@ project/
     ├── index.html                       # GitHub Pages website
   ├── methodology.html
   ├── results.html
+    ├── try-model.html
     ├── style.css
   ├── script.js
     └── assets/
@@ -135,7 +136,7 @@ python model_artifacts/use_pneumonia_model.py path/to/xray.jpg --checkpoint mode
 
 ## Website Upload Inference (No Backend)
 
-The `project_website/results.html` page now supports image upload and in-browser inference using ONNX Runtime Web.
+The `project_website/try-model.html` page supports image upload and in-browser inference using ONNX Runtime Web.
 
 ### 1. Export your checkpoint to ONNX
 
@@ -152,7 +153,7 @@ cd project_website
 python -m http.server 8080
 ```
 
-Open `http://localhost:8080/results.html`, upload a chest X-ray, and click **Predict**.
+Open `http://localhost:8080/try-model.html`, upload a chest X-ray, and click **Predict**.
 
 ### 3. Deploy
 

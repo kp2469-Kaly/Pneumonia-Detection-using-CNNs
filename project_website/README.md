@@ -2,7 +2,7 @@
 
 This folder contains the GitHub Pages website for the Pneumonia Detection project. It is a fully static multi-page site - no server or build step required.
 
-The Results page includes a browser-side upload-and-predict feature powered by ONNX Runtime Web.
+The Try Model page includes a browser-side upload-and-predict feature powered by ONNX Runtime Web.
 
 ## Files
 
@@ -11,6 +11,7 @@ The Results page includes a browser-side upload-and-predict feature powered by O
 | `index.html` | Home page |
 | `methodology.html` | Dataset, preprocessing, architecture, and training pipeline |
 | `results.html` | Metrics tables/charts and visual prediction outputs |
+| `try-model.html` | Upload image and run in-browser inference |
 | `style.css` | Custom CSS (blue, orange, white theme) |
 | `script.js` | Scroll animations, dynamic metrics rendering, and ONNX inference logic |
 | `assets/densenet121_best.onnx` | Exported web model used for in-browser inference |
@@ -56,7 +57,7 @@ python -m http.server 8080
 # then open http://localhost:8080 in your browser
 ```
 
-Open `http://localhost:8080/results.html`, upload a chest X-ray, and click **Predict**.
+Open `http://localhost:8080/try-model.html`, upload a chest X-ray, and click **Predict**.
 
 > This model is trained for chest X-rays only (NORMAL vs PNEUMONIA). It is not valid for kidney scans or other modalities.
 
