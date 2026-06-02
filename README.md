@@ -46,7 +46,8 @@ project/
 │   ├── densenet121_best.pth             # Saved best model checkpoint
 │   ├── normal.png                       # Sample prediction - NORMAL
 │   ├── pneumonia_true.png               # Sample prediction - PNEUMONIA
-│   └── use_pneumonia_model.py           # CLI inference script
+│   ├── use_pneumonia_model.py           # CLI inference script
+│   └── export_to_onnx.py                # Export checkpoint to ONNX for browser inference
 └── project_website/
     ├── index.html                       # GitHub Pages website
   ├── methodology.html
@@ -54,6 +55,7 @@ project/
     ├── style.css
   ├── script.js
     └── assets/
+        ├── densenet121_best.onnx
         ├── normal.png
         └── pneumonia_true.png
 ```
@@ -128,6 +130,35 @@ You can also point to a specific checkpoint:
 ```bash
 python model_artifacts/use_pneumonia_model.py path/to/xray.jpg --checkpoint model_artifacts/densenet121_best.pth
 ```
+
+---
+
+## Website Upload Inference (No Backend)
+
+The `project_website/results.html` page now supports image upload and in-browser inference using ONNX Runtime Web.
+
+### 1. Export your checkpoint to ONNX
+
+```bash
+python model_artifacts/export_to_onnx.py \
+  --checkpoint model_artifacts/densenet121_best.pth \
+  --output project_website/assets/densenet121_best.onnx
+```
+
+### 2. Test locally
+
+```bash
+cd project_website
+python -m http.server 8080
+```
+
+Open `http://localhost:8080/results.html`, upload a chest X-ray, and click **Predict**.
+
+### 3. Deploy
+
+Commit and push `project_website/assets/densenet121_best.onnx` with the website files.
+
+> Important: this model is trained for **chest X-rays only** (`NORMAL` vs `PNEUMONIA`). Do not use kidney scans or other imaging modalities.
 
 ---
 

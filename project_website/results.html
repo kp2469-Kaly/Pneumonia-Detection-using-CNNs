@@ -97,6 +97,55 @@
 
     <section class="section-pad reveal">
       <div class="container">
+        <h2 class="section-title">Try the Model in Your Browser</h2>
+        <p class="mb-3">Upload a chest X-ray image and run the exported DenseNet121 model directly in this page. No server is required after deployment.</p>
+
+        <div class="inference-panel">
+          <div class="alert alert-theme mb-3" role="alert">
+            This model is trained for <strong>chest X-rays only</strong> (NORMAL vs PNEUMONIA). Do not use kidney scans or other modalities.
+          </div>
+
+          <div class="row g-3 align-items-start">
+            <div class="col-lg-5">
+              <label for="uploadXray" class="form-label fw-semibold">Upload image</label>
+              <input id="uploadXray" class="form-control" type="file" accept="image/png,image/jpeg,image/jpg,image/webp" />
+              <p class="small text-secondary mb-3 mt-2">Accepted formats: PNG, JPG, JPEG, WEBP</p>
+
+              <div class="d-flex gap-2">
+                <button id="predictBtn" class="btn btn-theme-accent" type="button" disabled>
+                  <i class="bi bi-cpu me-1"></i>Predict
+                </button>
+                <button id="clearBtn" class="btn btn-theme-soft" type="button">Clear</button>
+              </div>
+
+              <p id="modelStatus" class="small status-text mt-3 mb-0">Model status: waiting for image.</p>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="preview-shell mb-3">
+                <img id="previewImage" alt="Uploaded chest X-ray preview" class="img-fluid rounded d-none" />
+                <div id="previewPlaceholder" class="preview-placeholder">Image preview will appear here</div>
+              </div>
+
+              <div id="predictionResult" class="prediction-card d-none">
+                <div class="prediction-head">
+                  <span>Prediction</span>
+                  <strong id="predictedClass">-</strong>
+                </div>
+                <div class="prob-row"><span>P(PNEUMONIA)</span><strong id="pPneumonia">-</strong></div>
+                <div class="prob-row"><span>P(NORMAL)</span><strong id="pNormal">-</strong></div>
+                <div class="confidence-meter mt-2">
+                  <div id="confidenceFill" class="confidence-fill"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad reveal">
+      <div class="container">
         <h2 class="section-title">Visual Predictions</h2>
         <div class="row g-3">
           <div class="col-md-6">
@@ -154,6 +203,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
